@@ -5,16 +5,14 @@ import org.hibernate.cfg.Configuration;
 import com.xworkz.component.FoodItem.entity.*;
 
 public class FoodItemRepositoryImpl implements FoodItemRepository {
-	
-public FoodItemRepositoryImpl() {
-	
+	private SessionFactory factory;
+    public FoodItemRepositoryImpl(SessionFactory factory) {
+	this.factory = factory;
 }
 	
 	@Override
 	public void save(FoodItemEntity entity) {
-		Configuration configuration = new Configuration();
-		configuration.configure();
-		SessionFactory factory = configuration.buildSessionFactory();
+		
 		Session session = factory.openSession();
 		session.beginTransaction();
 		session.save(entity);

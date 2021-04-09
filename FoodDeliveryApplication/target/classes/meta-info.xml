@@ -8,19 +8,29 @@
         http://www.springframework.org/schema/tx https://www.springframework.org/schema/tx/spring-tx.xsd 
         http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean class = "com.xworkz.component.FoodItem.repositery.FoodItemRepositoryImpl" id = "foodItemRepositoryImpl"/>
+    <bean class = "com.xworkz.component.FoodItem.repositery.FoodItemRepositoryImpl" id = "foodItemRepositoryImpl">
+    <constructor-arg ref = "localSessionFactoryBean"></constructor-arg>
+    </bean>
+    
        <bean class = "com.xworkz.component.FoodItem.service.FoodItemServiceImpl" id = "foodItemServiceImpl">
        <constructor-arg ref = "foodItemRepositoryImpl"></constructor-arg>
        </bean>
         
-        <bean class = "com.xworkz.component.CustomerRating.repositery.CustomerRepositoryImpl" id = "customerRepositoryImpl" />
+        <bean class = "com.xworkz.component.CustomerRating.repositery.CustomerRepositoryImpl" id = "customerRepositoryImpl" >
+        <constructor-arg ref = "localSessionFactoryBean"></constructor-arg>
+        </bean>
+        
         <bean class = "com.xworkz.component.CustomerRating.service.CustomerServiceImpl" id = "customerServiceImpl">
         <constructor-arg ref = "customerRepositoryImpl"></constructor-arg>
         </bean>
         
-        <bean class = "com.xworkz.component.HotelVender.repositery.VendorRepositoryImpl" id = "vendorRepositoryImpl" />
-        <bean class = "com.xworkz.component.HotelVender.service.VenderServiceImpl" id = "venderServiceImpl">
+        <bean class = "com.xworkz.component.HotelVender.repositery.VendorRepositoryImpl" id = "vendorRepositoryImpl">
+        <constructor-arg ref = "localSessionFactoryBean"></constructor-arg>
+        </bean>
+        <bean class = "com.xworkz.component.HotelVender.service.VenderServiceImpl1" id = "venderServiceImpl1" >
         <constructor-arg ref = "vendorRepositoryImpl"></constructor-arg>
         </bean>
+        
+        
 </beans>
        

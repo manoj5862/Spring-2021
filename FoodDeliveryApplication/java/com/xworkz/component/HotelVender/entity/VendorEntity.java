@@ -8,10 +8,12 @@ import javax.persistence.Table;
 import com.xworkz.component.constant.FoodType;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table (name = "vendor_table")
 public class VendorEntity {

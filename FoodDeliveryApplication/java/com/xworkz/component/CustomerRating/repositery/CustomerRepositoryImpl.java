@@ -7,15 +7,15 @@ import org.hibernate.cfg.Configuration;
 import com.xworkz.component.CustomerRating.entity.*;
 
 public class CustomerRepositoryImpl implements CustomerRepository {
+private SessionFactory factory;
 
-	public CustomerRepositoryImpl() {
+	public CustomerRepositoryImpl(SessionFactory factory) {
 		System.out.println("Created "+this.getClass().getSimpleName());
+		this.factory = factory;
 	}
 	@Override
 	public void save(CustomerEntity Entity) {
-		Configuration configuration = new Configuration();
-		configuration.configure();
-		SessionFactory factory = configuration.buildSessionFactory();
+		
 		Session session = factory.openSession();
 		session.beginTransaction();
 		session.save(Entity);

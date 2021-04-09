@@ -14,7 +14,7 @@ public class VenderServiceImpl1 implements VenderService1 {
 
 	@Override
 	public void ValidateAndSave(VendorEntity entity) {
-		if (entity!=null) {
+		if (entity != null) {
 			vendo.save(entity);
 		}
 		else {
